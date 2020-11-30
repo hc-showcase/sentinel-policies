@@ -1,0 +1,41 @@
+id = "run-Nxi5tpZsHr6TaruL"
+created_at = "2020-11-30T19:02:40.693Z"
+message = "Queued manually in Terraform Cloud"
+commit_sha = "35af4a00cd8cdcb44061c586766a191146461353"
+speculative = false
+is_destroy = false
+target_addrs = null
+
+variables = {
+	"AWS_ACCESS_KEY_ID": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"AWS_DEFAULT_REGION": {
+		"category":  "env",
+		"sensitive": false,
+	},
+	"AWS_SECRET_ACCESS_KEY": {
+		"category":  "env",
+		"sensitive": false,
+	},
+}
+
+organization = {
+	"name": "mkaesz-dev",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2020-11-30T19:00:39.667Z",
+	"description": null,
+	"id":          "ws-1xDL1MnvLBTXJEKp",
+	"name":        "tf-simple-module",
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "hc-showcase/tf-simple-module",
+		"identifier":         "hc-showcase/tf-simple-module",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}

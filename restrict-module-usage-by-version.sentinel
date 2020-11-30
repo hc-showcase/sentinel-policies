@@ -1,0 +1,32 @@
+import "tfconfig/v2" as tfconfig
+import "strings"
+
+allowed_versions = ["1", "2"]
+module_name = "vpc"
+
+require_module_have_certain_version = func(module, allowed_versions) {
+  
+  validated = true
+
+  for tfconfig.module_calls as index, mc {
+    if index matches module {
+      if mc.version_constraint == "" {
+          print("Your root module called the module", index, "with source", mc.source, ", but no version was specified.")
+          validated = false
+      } else {
+          if allowed_versions not contains mc.version_constraint {
+            print("Your root module called the module", index, "with source", mc.source, "in version", mc.version_constraint, "which is not in the allowed_versions list:", allowed_versions)
+            validated = false
+          }
+      }
+    }
+  }
+
+  return validated
+}
+
+validate = require_module_have_certain_version(module_name, allowed_versions)
+
+main = rule {
+  validate
+}

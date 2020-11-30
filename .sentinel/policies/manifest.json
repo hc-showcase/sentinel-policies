@@ -1,0 +1,10 @@
+{
+	"records": [
+		{
+			"key": "restrict-module-usage-by-version",
+			"source": "./restrict-module-usage-by-version.sentinel",
+			"sourceSum": "",
+			"dest": "/Users/mkaesz/workspace/sentinel-policies/restrict-module-usage-by-version.sentinel"
+		}
+	]
+}
