@@ -1,7 +1,7 @@
 import "tfconfig/v2" as tfconfig
 import "strings"
 
-allowed_versions = ["1", "2"]
+allowed_versions = ["1", "2.64.0"]
 module_name = "vpc"
 
 require_module_have_certain_version = func(module, allowed_versions) {
