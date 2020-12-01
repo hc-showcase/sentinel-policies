@@ -14702,7 +14702,7 @@ module_calls = {
 		"module_address":     "",
 		"name":               "vpc",
 		"source":             "terraform-aws-modules/vpc/aws",
-		"version_constraint": "1",
+		"version_constraint": "2.64.0",
 	},
 }
 
