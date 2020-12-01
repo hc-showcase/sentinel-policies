@@ -1,6 +1,8 @@
 import "tfconfig/v2" as tfconfig
 import "strings"
 
+//Req: Mindestens Version x, kleiner/gleich Version x muss geblockt werden
+
 allowed_versions = ["1", "2.64.0"]
 module_name = "vpc"
 
@@ -10,15 +12,15 @@ require_module_have_certain_version = func(module, allowed_versions) {
 
   for tfconfig.module_calls as index, mc {
     if index matches module {
-      if mc.version_constraint == "" {
-          print("Your root module called the module", index, "with source", mc.source, ", but no version was specified.")
-          validated = false
-      } else {
+#      if mc.version_constraint == "" {
+#          print("Your root module called the module", index, "with source", mc.source, ", but no version was specified.")
+#          validated = false
+#      } else {
           if allowed_versions not contains mc.version_constraint {
             print("Your root module called the module", index, "with source", mc.source, "in version", mc.version_constraint, "which is not in the allowed_versions list:", allowed_versions)
             validated = false
           }
-      }
+#      }
     }
   }
 

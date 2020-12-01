@@ -1,0 +1,27 @@
+allowed_versions = ["1", "2.64.0"]
+module_name = "vpc"
+
+import "tfconfig-functions" as config
+
+allModuleCalls = config.find_all_module_calls()
+
+#Get all module calls tht have version_constraint as undefined or empty.
+#think it as : (mc.version_constrain else "") is ""
+violatingModuleCalls = filter allModuleCalls as address, mc {
+    mc.version_constraint else "" is ""
+}
+
+# Print any violations
+
+for violatingModuleCalls as address, mc {
+    print("Module", address, "does not have version_constraint set")
+}
+
+# Main rule
+main = rule {
+    length(violatingModuleCalls) is 0
+}
+
+main = rule {
+  validate
+}
